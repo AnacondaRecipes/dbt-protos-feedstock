@@ -1,0 +1,50 @@
+{% set name = "dbt-protos" %}
+{% set version = "1.0.348" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dbt_protos-{{ version }}.tar.gz
+  sha256: d8834c685c323b1533c1c7fdb5db5636cffab2f1a58515caba54b3dc13a3578b
+
+build:
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  skip: true  # [py<36]
+
+requirements:
+  host:
+    - pip
+    - python
+    - wheel
+    - setuptools
+  run:
+    - python
+    - protobuf >=3.17.1
+
+test:
+  source_files:
+    - test
+  imports:
+    - dbtlabs
+  commands:
+    - pip check
+    - python test/import_test.py
+  requires:
+    - pip
+
+about:
+  home: https://github.com/dbt-labs/proto-python-public
+  summary: Public proto bindings for dbt
+  license: Apache-2.0
+  license_family: Apache
+  license_file: LICENSE
+  description: Public proto bindings for dbt.
+  dev_url: https://github.com/dbt-labs/proto-python-public
+  doc_url: https://github.com/dbt-labs/proto-python-public/blob/main/README.md
+
+extra:
+  recipe-maintainers:
+    - rxm7706
