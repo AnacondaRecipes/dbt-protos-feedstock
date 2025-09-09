@@ -41,7 +41,7 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE
-  description: Public proto bindings for dbt.
+  description: Public proto bindings for dbt
   dev_url: https://github.com/dbt-labs/proto-python-public
   doc_url: https://github.com/dbt-labs/proto-python-public/blob/main/README.md
 
