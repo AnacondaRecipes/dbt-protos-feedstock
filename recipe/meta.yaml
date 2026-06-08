@@ -1,13 +1,13 @@
 {% set name = "dbt-protos" %}
-{% set version = "1.0.348" %}
+{% set version = "1.0.514" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace("-", "_") }}-{{ version }}.tar.gz
-  sha256: d8834c685c323b1533c1c7fdb5db5636cffab2f1a58515caba54b3dc13a3578b
+  sha256: 4429a8b0675140467206aaaf9d9468e619a9697f443e4b3921f297d01e4a77a0
 
 build:
   number: 0
